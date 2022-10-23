@@ -11,12 +11,24 @@
     <body>
         <div class="container mt-5">
             <h3 id="title"></h3>
-            <input type="button" value="攻撃" class="btn btn-outline-danger" onclick="attackButton()">
-            <input type="button" value="逃げる" class="btn btn-outline-primary" onclick="runawayButton()">
             <!-- <div class="player-hp">HP: 100</div> -->
             <!-- <button class="btn"  onclick="console.log('aaa')">ボタン</button> -->
-            <div class="mt-3 fs-3" id="singolog"></div>
-            <div id="monsterlog"></div>
+
+            
+            <div class="mt-3 fs-3" id="singoHP">しんごHP:#####</div>
+            <div class="mt-3 fs-3" id="monsterHP">モンスターHP:#####</div>
+            
+            <div style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
+                <div class="mt-3 fs-3" id="singolog">-</div>
+                <div class="mt-3 fs-3" id="monsterlog">-</div>
+            </div>
+            <div style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
+                <div class="mt-3 fs-3" id="syslog">-</div>
+            </div>
+
+            <input type="button" value="攻撃" class="btn btn-outline-danger" onclick="attackButton()">
+            <input type="button" value="逃げる" class="btn btn-outline-primary" onclick="runawayButton()">
+            <input type="button" value="アイテム" onclick="item()">
 
         </div>
         
