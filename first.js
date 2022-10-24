@@ -19,10 +19,10 @@ const monsterHP = document.getElementById("monsterHP")
 
 const singolog = document.getElementById("singolog")
 const monsterlog = document.getElementById("monsterlog")
-const syslog = document.getElementById("syslog")
-syslog.textContent = "モンスターが現れた"
+const sysmesse = document.getElementById("sysmesse")
+sysmesse.textContent = "モンスターが現れた"
 
-function attackButton(){
+const attackButton = () =>{
     const getHpText = (hp) => {
         if(hp>0){
             const num =  Math.floor(hp / 20)
@@ -38,35 +38,47 @@ function attackButton(){
 
         monsterDamage = parseInt(Math.floor(Math.random() * 30))
         monsterLife = monsterLife - monsterDamage
-        monsterlog.textContent = "モンスターは" + monsterDamage + "のダメージを受けた"
+        let monsterMesse = "モンスターは" + monsterDamage + "のダメージを受けた"
+        monsterlog.textContent = monsterMesse 
         monsterHP.textContent = "モンスターHP:" + getHpText(monsterLife)
+        log(monsterMesse)
     }
     
     if(monsterLife <= 0 && flag == false){
         monsterlog.textContent = "モンスターは力尽きた"
+        log("モンスターは力尽きた")
         flag = true
     }
     
     if(playerLife > 0 && monsterLife > 0 && runFlag == false){
         playerDamage = parseInt(Math.floor(Math.random() * 30))
         playerLife = playerLife - playerDamage
-        singolog.textContent = "しんごは" + playerDamage + "のダメージを受けた"
+        let singoMesse = "しんごは" + playerDamage + "のダメージを受けた"
+        singolog.textContent = singoMesse
         singoHP.textContent ="しんごHP:" + getHpText(playerLife)
+        log(singoMesse)
     }
     
     if(playerLife <= 0 && flag == false){
         singolog.textContent = "しんごは力尽きた"
+        log("しんごは力尽きた")
         flag = true
     }
 }
 
-function runawayButton(){
+const runawayButton = () =>{
     if(flag == false && runFlag == false){
-        syslog.textContent = "逃げ切れた"
+        sysmesse.textContent = "逃げ切れた"
+        log("逃げ切れた")
         runFlag = true    
     }
 }
 
-function item(){
+const item = () =>{
+}
 
+const Gamelog = () =>{
+    document.getElementById("syslog").textContent = mainlog(logLists)
+    // location.href = "gameInfo.html"
+    
 }
