@@ -1,14 +1,14 @@
 
-let monster_life = 100
-let monster_damage = 0
-let player_life = 100
-let player_damage = 0
+let monsterLife = 100
+let monsterDamage = 0
+let playerLife = 100
+let playerDamage = 0
 
 let flag = false
 let runFlag = false
+let Y = 0
+let returnY = 0
 
-
-document.getElementById("title").textContent = "モンスターが現れた"
 
 
 const singoHP = document.getElementById("singoHP")
@@ -20,6 +20,7 @@ const monsterHP = document.getElementById("monsterHP")
 const singolog = document.getElementById("singolog")
 const monsterlog = document.getElementById("monsterlog")
 const syslog = document.getElementById("syslog")
+syslog.textContent = "モンスターが現れた"
 
 function attackButton(){
     const getHpText = (hp) => {
@@ -30,26 +31,30 @@ function attackButton(){
             return "-"
         }
     }
-    if(player_life > 0 && monster_life > 0 && runFlag == false){
-        monster_damage = parseInt(Math.floor(Math.random() * 30))
-        monster_life = monster_life - monster_damage
-        monsterlog.textContent = "モンスターは" + monster_damage + "のダメージを受けた"
-        monsterHP.textContent = "モンスターHP:" + getHpText(monster_life)
+    if(playerLife > 0 && monsterLife > 0 && runFlag == false){
+
+        // Y += 10
+        // document.getElementById("singo").style.left = Y + "px"
+
+        monsterDamage = parseInt(Math.floor(Math.random() * 30))
+        monsterLife = monsterLife - monsterDamage
+        monsterlog.textContent = "モンスターは" + monsterDamage + "のダメージを受けた"
+        monsterHP.textContent = "モンスターHP:" + getHpText(monsterLife)
     }
     
-    if(monster_life <= 0 && flag == false){
+    if(monsterLife <= 0 && flag == false){
         monsterlog.textContent = "モンスターは力尽きた"
         flag = true
     }
     
-    if(player_life > 0 && monster_life > 0 && runFlag == false){
-        player_damage = parseInt(Math.floor(Math.random() * 30))
-        player_life = player_life - player_damage
-        singolog.textContent = "しんごは" + player_damage + "のダメージを受けた"
-        singoHP.textContent ="しんごHP:" + getHpText(player_life)
+    if(playerLife > 0 && monsterLife > 0 && runFlag == false){
+        playerDamage = parseInt(Math.floor(Math.random() * 30))
+        playerLife = playerLife - playerDamage
+        singolog.textContent = "しんごは" + playerDamage + "のダメージを受けた"
+        singoHP.textContent ="しんごHP:" + getHpText(playerLife)
     }
     
-    if(player_life <= 0 && flag == false){
+    if(playerLife <= 0 && flag == false){
         singolog.textContent = "しんごは力尽きた"
         flag = true
     }
