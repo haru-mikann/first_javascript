@@ -1,4 +1,15 @@
 .mainImg{
+    padding: 100px 200px;
     display: inline
     
 }
+/* #singo{
+    animation:4s linear infinite rotation1;
+} */
+/* #monster{
+    animation:3s linear infinite rotation1;
+  }
+  @keyframes rotation1{
+    0%{ transform:rotate(0);}
+    100%{ transform:rotate(360deg); }
+  } */
