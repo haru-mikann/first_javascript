@@ -10,38 +10,59 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="container mt-5">
+        <header class="shadow d-flex align-items-center" style="height: 100px; width: 100%; ">
+        <h1 class="ms-3">でぐちしんごバトル</h1>
+        </header>
+        <div class="container mt-2 mb-2">
             <h3 id="title"></h3>
             <!-- <div class="player-hp">HP: 100</div> -->
             <!-- <button class="btn"  onclick="console.log('aaa')">ボタン</button> -->
-            <div class="mainImg" >
-                <!-- <img  id="singo" src="singo.jpg" width="300" height="300">
-                <h2  >VS</h2>
-                <img  id="monster" src="monster.jpg" width="300" height="300"> -->
+            <div class="main-img d-flex justify-content-center align-content-center">
+                <div class="d-flex flex-column">
+                    <span class="fs-2 fw-bold text-center">しんご</span>
+                    <img class="rounded-circle" id="singo" src="singo.jpg" width="300" height="300">
+                    <h2 class="text-center" id="singoHP">HP: #####</h2>
+                </div>
+                <div class="d-flex align-items-center mx-3">
+                    <span id="vs" class="fs-1" >VS</span>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="fs-2 fw-bold text-center">モンスター</span>
+                    <img  class="rounded-circle" id="monster" src="monster.jpg" width="300" height="300">
+                    <h2 class="text-center" id="monsterHP">HP: #####</h2>
+                </div>
             </div>
             
-            <div class="mt-3 fs-3">
-                <div id="singoHP">しんごHP:#####</div>
-                <div id="monsterHP">モンスターHP:#####</div>
+            <div class="mt-4 fs-4">
+                <div class="">
+
+                    <div class="p-2 border mb-2 mt-3 ">
+                        <div id="singolog"></div>
+                        <div id="monsterlog"></div>
+                    </div>
+        
+                    <div class="">
+
+                        <input type="button" value="攻撃" class="btn btn-outline-danger" onclick="attackButton()">
+                        <input type="button" value="逃げる" class="btn btn-outline-primary" onclick="runawayButton()">
+                        <input type="button" value="アイテム" class="btn btn-outline-success" onclick="item()">
+                    </div>
+                    
+                </div>
                 
-                <div style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
-                    <div id="singolog">-</div>
-                    <div id="monsterlog">-</div>
-                </div>
-                <div style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
-                    <div id="sysmesse">-</div>
-                </div>
-    
-                <input type="button" value="攻撃" class="btn btn-outline-danger" onclick="attackButton()">
-                <input type="button" value="逃げる" class="btn btn-outline-primary" onclick="runawayButton()">
-                <input type="button" value="アイテム" class="btn btn-outline-success" onclick="item()">
-                <input type="button" value="ゲームログ"class="btn btn-outline-secondary" onclick="Gamelog()">
-    
-                <div style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
-                    <div id="syslog">-</div>
+                <div class="mt-5">
+
+                    <input type="button" value="セーブ"class="btn btn-outline-secondary" onclick="save()">
+                    <input type="button" value="log削除"class="btn btn-outline-secondary" onclick="rm()">
+                    <input type="button" value="↻"class="btn btn-outline-secondary" onclick="replay()">
+                    <div class="p-2 border mb-2 mt-2">
+                        <h3>log表示</h3>
+                        <div id="syslog"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <footer class="mt-5 text-white d-flex justify-content-center align-items-center" style="background-color: rgb(1, 1, 112); height: 200px; width: 100%;">©でぐちしんご</footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="first.js"></script>
         <script src="log.js"></script>

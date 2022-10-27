@@ -10,7 +10,6 @@ let Y = 0
 let returnY = 0
 
 
-
 const singoHP = document.getElementById("singoHP")
 const monsterHP = document.getElementById("monsterHP")
 
@@ -19,7 +18,7 @@ const monsterHP = document.getElementById("monsterHP")
 
 const singolog = document.getElementById("singolog")
 const monsterlog = document.getElementById("monsterlog")
-const sysmesse = document.getElementById("sysmesse")
+const sysmesse = document.getElementById("singolog")
 sysmesse.textContent = "モンスターが現れた"
 
 const attackButton = () =>{
@@ -28,19 +27,19 @@ const attackButton = () =>{
             const num =  Math.floor(hp / 20)
             return '#'.repeat(num)
         }else{
-            return "-"
+            return ""
         }
     }
     if(playerLife > 0 && monsterLife > 0 && runFlag == false){
-
+        
         // Y += 10
         // document.getElementById("singo").style.left = Y + "px"
-
+        
         monsterDamage = parseInt(Math.floor(Math.random() * 30))
         monsterLife = monsterLife - monsterDamage
         let monsterMesse = "モンスターは" + monsterDamage + "のダメージを受けた"
         monsterlog.textContent = monsterMesse 
-        monsterHP.textContent = "モンスターHP:" + getHpText(monsterLife)
+        monsterHP.textContent = "HP: " + getHpText(monsterLife)
         log(monsterMesse)
     }
     
@@ -55,7 +54,7 @@ const attackButton = () =>{
         playerLife = playerLife - playerDamage
         let singoMesse = "しんごは" + playerDamage + "のダメージを受けた"
         singolog.textContent = singoMesse
-        singoHP.textContent ="しんごHP:" + getHpText(playerLife)
+        singoHP.textContent ="HP: " + getHpText(playerLife)
         log(singoMesse)
     }
     
@@ -75,10 +74,23 @@ const runawayButton = () =>{
 }
 
 const item = () =>{
+    
 }
 
-const Gamelog = () =>{
-    document.getElementById("syslog").textContent = mainlog(logLists)
-    // location.href = "gameInfo.html"
+const save = () =>{
+    let addedlog = JSON.stringify(logLists)
+    localStorage.setItem("log",addedlog)
     
+}
+
+
+const rm = () =>{
+    localStorage.removeItem("log")
+}
+let localLOG = JSON.parse(localStorage.getItem("log"))
+console.log(localLOG)
+
+//もう一度遊ぶ
+const replay = () =>{
+    location.reload()
 }
